@@ -37,8 +37,7 @@ export class ListadoUsuarioComponent implements OnInit {
     })
 
     $("#buscar").on("click", function(){
-      $(".busca").val("");
-      $("#filtro").val("-1");
+      $(".busca").val("");      
     })
     
   }
@@ -68,7 +67,12 @@ export class ListadoUsuarioComponent implements OnInit {
       //Llamada post en la que guardamos en el array de los usuarios el nuevo usuario
       this.servicio.post(`${(window as any).rutas.backendURL}`, data).subscribe((respuesta =>{
         console.log(respuesta);
-        this.usuarios.push(respuesta);        
+        this.usuarios.push(respuesta);  
+
+        swal.fire({
+          icon: 'success',
+          title: 'Usuario insertado correctamente',          
+        });      
       }))
       
     }    
@@ -122,6 +126,8 @@ export class ListadoUsuarioComponent implements OnInit {
         title: 'Usuarios encontrados',
         html: mensajeUsuarios // Mostrar los usuarios encontrados
       });
+      this.selectedOption = "-1";
+      
     } else {
       swal.fire({
         icon: 'error',
