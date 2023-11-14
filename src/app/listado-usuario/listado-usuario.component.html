@@ -1,0 +1,67 @@
+<div class="container-fluid">    
+    <!-- Formulario para guardar usuario -->
+    <div class="formulario">
+        <form>
+            <span class="tituloForm">Formulario de registro</span>
+            <div class="form-group">
+              <label for="nombre">Nombre:</label>
+              <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+        
+            <div class="form-group">
+              <label for="apellido1">Apellido1:</label>
+              <input type="text" class="form-control" id="apellido1" name="apellido1" required>
+            </div>
+        
+            <div class="form-group">
+              <label for="apellido2">Apellido2:</label>
+              <input type="text" class="form-control" id="apellido2" name="apellido2" required>
+            </div>
+        
+            <div class="form-group">
+              <label for="correo">Correo Electrónico:</label>
+              <input type="email" class="form-control" id="correo" name="correo" required>
+            </div>   
+
+            <button id="enviar" (click)="enviarDatos()" type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+    <!-- Buscador de usuario en la tabla -->
+    <div class="buscador">
+        <span>Buscador</span>
+        <select name="sel" id="filtro" [(ngModel)]="selectedOption">
+            <option value="-1">Filtrar búsqueda por...</option>
+            <option value="nombre">Nombre</option>
+            <option value="apellido1">Apellido1</option>
+            <option value="apellido2">Apellido2</option>
+            <option value="email">Correo electrónico</option>
+        </select>
+        <input class="busca form-control" type="text" autocomplete="on" placeholder="Buscar usuario" [(ngModel)]="searchText">
+        <button (click)="buscarUsuario()" id="buscar" type="submit" class="btn btn-primary">Buscar</button>
+    </div>
+    <!-- Tabla donde se muestra los usuarios -->
+    <div class="tabla">
+        <table id="tablaListado" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre de Usuario</th>
+                    <th>Nombre</th>
+                    <th>Apellido1</th>
+                    <th>Apellido2</th>
+                    <th>Correo Electrónico</th>
+                </tr>
+            </thead>
+            <tbody>            
+                <tr *ngFor="let datos of usuarios | paginate: { itemsPerPage: 5, currentPage: page };">
+                    <td>{{datos.id}}</td>
+                    <td >{{datos.name}}</td>
+                    <td>{{datos.surname1}}</td>
+                    <td>{{datos.surname1}}</td>
+                    <td>{{datos.email}}</td>
+                </tr>             
+            </tbody>        
+        </table>
+        <!-- paginador de 5 usuarios por página -->
+        <pagination-controls class="paginador" (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    </div>    
+</div>

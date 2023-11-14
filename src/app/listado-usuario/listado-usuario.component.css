@@ -1,0 +1,62 @@
+.tabla{
+    width: 100%;
+}
+#tablaListado{
+    margin: 0 auto;
+    width: 50%;
+    margin-top: 50px;
+}
+#tablaListado > thead > tr > th:first-child{
+    white-space: nowrap;
+}
+.paginador{
+    float: right;
+    margin-right: 25%;
+    margin-top: 20px;
+    white-space: nowrap;
+    margin-bottom: 20px;
+}
+.buscador{
+    width: 100%;
+    margin-top: 70px;
+    display: inline-flex;
+}
+.busca{
+    width: 250px;
+    margin-left: 15px;
+    
+}
+span{
+    margin-top: 5px;
+    margin-left: 25%;
+    font-weight: bold;
+    font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+.formulario{
+    width: 100%;
+    margin-top: 50px;
+}
+form{
+    margin-left: 25%;
+}
+.form-group > input{
+    width: 250px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.tituloForm{
+    margin-left: 0;
+    font-size: 25px;
+    /* margin-bottom: 15px; */
+}
+form label[for="nombre"] {
+    margin-top: 30px;
+}
+#filtro{
+    margin-left: 15px;
+}
+#buscar{
+    margin-left: 15px;
+}
+  
+  
